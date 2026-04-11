@@ -1,18 +1,16 @@
 export default function Footer() {
   return (
-    <footer className="flex justify-between items-center font-[family-name:var(--font-dm-mono)] text-[0.65rem] uppercase tracking-wider"
-      style={{ padding: '28px 48px', color: 'var(--muted)' }}>
-      <div className="flex items-center gap-3">
-        <span className="w-[10px] h-[10px] rounded-full" style={{ background: 'var(--green)', border: '1.5px solid var(--ink)' }} />
+    <footer className="flex flex-col min-[860px]:flex-row justify-between items-center font-[family-name:var(--font-dm-mono)] text-[0.6rem] uppercase tracking-[0.07em] text-[var(--muted)] border-t-[1.5px] border-[var(--ink)] p-[18px_24px] min-[860px]:p-[22px_52px] gap-[10px] min-[860px]:gap-0">
+      <div className="flex items-center gap-[10px]">
+        <span className="w-[8px] h-[8px] rounded-full bg-[var(--green)] border-[1.5px] border-[var(--ink)] inline-block" />
         razan.dev
-        <span style={{ color: 'var(--red)', fontSize: '0.9rem' }}>×</span>
+        <span className="text-[var(--red)] text-[0.85rem]">×</span>
         Made with passion
       </div>
       <div>© 2025 · All rights reserved</div>
-      <div className="flex gap-5">
-        {['GitHub', 'LinkedIn', 'Instagram'].map((l) => (
-          <a key={l} href="#" className="no-underline hover:text-[var(--ink)] transition-colors" style={{ color: 'var(--muted)' }}>{l}</a>
-        ))}
+      <div className="flex gap-[20px]">
+        <a href="https://github.com/razannnnnn" target="_blank" rel="noopener noreferrer" className="no-underline text-[var(--muted)] hover:text-[var(--ink)] transition-colors">GitHub</a>
+        <a href="https://instagram.com/razaneoeo" target="_blank" rel="noopener noreferrer" className="no-underline text-[var(--muted)] hover:text-[var(--ink)] transition-colors">Instagram</a>
       </div>
     </footer>
   )

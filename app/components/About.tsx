@@ -1,12 +1,15 @@
+import { FaHtml5, FaReact, FaNodeJs, FaGithub } from 'react-icons/fa';
+import { SiJavascript, SiNextdotjs, SiTailwindcss, SiMongodb } from 'react-icons/si';
+
 const skills = [
-  { label: 'HTML & CSS',   dot: 'var(--blue)' },
-  { label: 'JavaScript',   dot: 'var(--red)' },
-  { label: 'React',        dot: 'var(--green)' },
-  { label: 'Next.js',      dot: 'var(--yellow)' },
-  { label: 'Tailwind CSS', dot: 'var(--blue)' },
-  { label: 'Node.js',      dot: 'var(--red)' },
-  { label: 'MongoDB',      dot: 'var(--green)' },
-  { label: 'Git & GitHub', dot: 'var(--yellow)' },
+  { label: 'HTML & CSS',   icon: <FaHtml5 size={14} />, color: 'var(--red)' },
+  { label: 'JavaScript',   icon: <SiJavascript size={12} />, color: 'var(--yellow)' },
+  { label: 'React',        icon: <FaReact size={14} />, color: 'var(--blue)' },
+  { label: 'Next.js',      icon: <SiNextdotjs size={14} />, color: 'var(--green)' },
+  { label: 'Tailwind CSS', icon: <SiTailwindcss size={14} />, color: 'var(--blue)' },
+  { label: 'MongoDB',      icon: <SiMongodb size={14} />, color: 'var(--green)' },
+  { label: 'Node.js',      icon: <FaNodeJs size={14} />, color: 'var(--red)' },
+  { label: 'Git & GitHub', icon: <FaGithub size={14} />, color: 'var(--yellow)' },
 ]
 
 const badges = [
@@ -17,27 +20,28 @@ const badges = [
 
 export default function About() {
   return (
-    <div id="about" className="about-grid grid" style={{ gridTemplateColumns: '1fr 1fr' }}>
+    <section id="about" className="grid grid-cols-1 min-[860px]:grid-cols-2 border-b-[1.5px] border-[var(--ink)]">
+      
       {/* Left */}
-      <div className="flex flex-col gap-6" style={{ padding: '80px 48px', borderRight: '1.5px solid var(--ink)' }}>
-        <span className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[0.68rem] tracking-[0.1em] uppercase w-fit"
-          style={{ background: 'var(--red)', border: '1.5px solid var(--ink)', padding: '5px 12px' }}>
+      <div className="p-[56px_24px] min-[860px]:p-[80px_52px] border-[var(--ink)] flex flex-col gap-[22px] reveal border-b-[1.5px] max-[859px]:border-r-0 min-[860px]:!border-b-0 min-[860px]:border-r-[1.5px]">
+        <span className="inline-flex items-center gap-[8px] border-[1.5px] border-[var(--ink)] p-[4px_12px] w-fit text-[0.62rem] tracking-[0.11em] uppercase font-['DM_Mono',_monospace] bg-[var(--red)]">
           × Tentang Saya
         </span>
-        <h2 className="font-[family-name:var(--font-syne)] font-extrabold"
-          style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)', letterSpacing: '-2px', lineHeight: '1.1' }}>
-          Pelajar yang<br />suka<br />
-          <span style={{ color: 'var(--blue)', WebkitTextStroke: '1.5px #1a1a1a' }}>ngoding.</span>
+        
+        <h2 className="font-['Instrument_Serif',_serif] text-[clamp(2rem,3.5vw,3rem)] leading-[1.1] tracking-[-0.3px]">
+          Pelajar yang<br/>suka bikin<br/>
+          <em className="not-italic italic text-[var(--blue)] [-webkit-text-stroke:1.2px_var(--ink)] overflow-visible">hal keren.</em>
         </h2>
-        <p className="font-[family-name:var(--font-dm-mono)] text-[0.8rem]" style={{ color: '#555', lineHeight: '1.85' }}>
-          Siswa SMA/SMK di Indonesia dengan passion di web development. Suka eksplorasi
-          teknologi baru, dari frontend hingga backend, dan selalu mencoba bikin sesuatu yang beda.
+        
+        <p className="text-[0.77rem] leading-[1.85] text-[#555] font-['DM_Mono',_monospace] align-justify">
+          Saya Razan, seorang pelajar dengan ketertarikan mendalam pada dunia pengembangan web. Saat ini saya aktif mempelajari teknologi web modern sebagai bagian dari pengembangan diri saya.
+Saya berkomitmen untuk membangun website yang fungsional, aman, dan dibangun di atas arsitektur teknologi yang relevan. Dalam setiap proyek, saya menggabungkan kemampuan teknis dengan komunikasi yang proaktif, pemikiran kritis, dan manajemen waktu yang baik — serta berusaha memberikan hasil yang optimal dan dampak yang nyata.
         </p>
-        <div className="flex gap-2 flex-wrap">
+        
+        <div className="flex gap-[7px] flex-wrap mt-[6px]">
           {badges.map((b) => (
-            <span key={b.label} className="inline-flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[0.65rem] tracking-wider uppercase bg-white"
-              style={{ border: '1.5px solid var(--ink)', padding: '5px 10px' }}>
-              <span className="w-[7px] h-[7px] rounded-full" style={{ background: b.dot, border: '1px solid var(--ink)' }} />
+            <span className="border-[1.5px] border-[var(--ink)] px-[11px] py-[5px] text-[0.62rem] tracking-[0.07em] uppercase flex items-center gap-[6px] font-['DM_Mono',_monospace]" key={b.label}>
+              <span className="w-[6px] h-[6px] rounded-full border-[1px] border-[var(--ink)]" style={{ background: b.dot }}></span>
               {b.label}
             </span>
           ))}
@@ -45,24 +49,28 @@ export default function About() {
       </div>
 
       {/* Right */}
-      <div className="flex flex-col justify-center" style={{ padding: '80px 48px' }}>
-        <div className="font-[family-name:var(--font-dm-mono)] text-[0.68rem] uppercase tracking-widest mb-4" style={{ color: 'var(--muted)' }}>
-          Tech Stack
+      <div className="grid grid-rows-[auto_1fr] reveal">
+        <div className="p-[20px_24px_14px] min-[860px]:p-[20px_36px_14px] border-b-[1.5px] border-[var(--ink)] text-[0.62rem] uppercase tracking-[0.1em] text-[var(--muted)] font-['DM_Mono',_monospace]">
+          × Tech Stack
         </div>
-        <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', border: '1.5px solid var(--ink)' }}>
+        
+        <div className="grid grid-cols-1 min-[860px]:grid-cols-2">
           {skills.map((s, i) => (
-            <div key={i} className="skill-item flex items-center gap-2 font-[family-name:var(--font-dm-mono)] text-[0.7rem] transition-colors duration-150"
-              style={{
-                padding: '14px 16px',
-                borderRight: (i + 1) % 2 !== 0 ? '1.5px solid var(--ink)' : 'none',
-                borderBottom: i < skills.length - 2 ? '1.5px solid var(--ink)' : 'none',
-              }}>
-              <span className="w-[7px] h-[7px] rounded-full flex-shrink-0" style={{ background: s.dot, border: '1px solid var(--ink)' }} />
+            <div 
+              key={i} 
+              className={`p-[16px_24px] min-[860px]:p-[16px_20px] flex items-center gap-[10px] text-[0.7rem] transition-colors duration-200 cursor-default hover:bg-[rgba(0,0,0,0.03)] border-[var(--ink)] font-['DM_Mono',_monospace] border-b-[1.5px] last:border-b-0 max-[859px]:border-r-0 ${i < skills.length - 2 ? 'min-[860px]:border-b-[1.5px]' : 'min-[860px]:!border-b-0'} ${(i + 1) % 2 === 1 ? 'min-[860px]:border-r-[1.5px]' : 'min-[860px]:!border-r-0'}`}
+            >
+              <div 
+                className="w-[28px] h-[28px] border-[1.5px] border-[var(--ink)] flex items-center justify-center text-[0.6rem] shrink-0 font-medium font-['DM_Mono',_monospace]" 
+                style={{ background: s.color }}
+              >
+                {s.icon}
+              </div>
               {s.label}
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
