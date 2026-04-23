@@ -22,9 +22,9 @@ export default function Hero() {
         </p>
 
         <div className="fade-up-4 flex gap-3 items-center">
-          <button className="font-[family-name:var(--font-dm-mono)] text-[0.75rem] tracking-[0.06em] uppercase cursor-pointer transition-colors hover:bg-[#333] text-[#FFFFFF] bg-[var(--ink)] border-[1.5px] border-[var(--ink)] py-[11px] px-[28px]">
+          <a className="font-[family-name:var(--font-dm-mono)] text-[0.75rem] tracking-[0.06em] uppercase cursor-pointer transition-colors hover:bg-[#333] text-[#FFFFFF] bg-[var(--ink)] border-[1.5px] border-[var(--ink)] py-[11px] px-[28px] no-underline" href="#projects">
             Lihat Projects
-          </button>
+          </a>
           <button className="font-[family-name:var(--font-dm-mono)] text-[0.75rem] tracking-[0.06em] uppercase bg-transparent cursor-pointer transition-all hover:bg-[var(--ink)] hover:text-[#FFFFFF] text-[var(--ink)] border-[1.5px] border-[var(--ink)] py-[11px] px-[28px]">
             Tentang Saya
           </button>
