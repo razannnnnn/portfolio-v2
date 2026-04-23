@@ -4,10 +4,10 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 const allProjectsData = [
-  { num: '01', category: 'Full Stack', name: 'HostImgAjaa', image: 'https://hostimgajaa.razan.web.id/api/i/8389bb21-e1f2-432f-9310-fe23f51dc481.png', desc: 'Platform image hosting gratis dengan upload Cloudinary, autentikasi NextAuth, dan animasi WebGL.', tags: [{ label: 'Next.js', color: 'bg-[var(--blue)]' }, { label: 'MongoDB', color: 'bg-[var(--green)]' }, { label: 'Cloudinary', color: 'bg-[var(--red)]' }], bgClass: 'bg-[var(--blue)]', thumbLabel: 'IMG' },
-  { num: '02', category: 'Full Stack', name: 'PromptBetter', image: 'https://hostimgajaa.razan.web.id/api/i/e4a22f08-b56e-4a5c-a2a0-563014ab66b9.png',  desc: 'Website untuk mengubah prompt biasa menjadi luar biasa', tags: [{ label: 'Next.js', color: 'bg-[var(--blue)]' }, { label: 'MongoDB', color: 'bg-[var(--green)]' }, { label: 'GROQ AI', color: 'bg-[var(--red)]' }, { label: 'Tailwind', color: 'bg-[var(--blue)]' }], bgClass: 'bg-[var(--red)]', thumbLabel: 'QUIZ' },
-  { num: '03', category: 'Frontend', name: 'NgopiDiBlitar', image: 'https://hostimgajaa.razan.web.id/api/i/ae762bbc-0f75-4143-8bb0-d714ea765b08.png', desc: 'Halaman rekomendasi dan list cafe-cafe di Kota Blitar', tags: [{ label: 'Next.js', color: 'bg-[var(--green)]' }, { label: 'Tailwind', color: 'bg-[var(--blue)]' }, { label: 'Google Sheets API', color: 'bg-[var(--green)]'}], bgClass: 'bg-[var(--green)]', thumbLabel: 'LAND' },
-  { num: '04', category: 'Full Stack', name: 'RumahFilm', image: 'https://hostimgajaa.razan.web.id/api/i/5e05508d-0031-4574-8701-e46269e9e976.png', desc: 'Platform streaming film online bersih, nyaman, gratis', tags: [{ label: 'Next.js', color: 'bg-[var(--green)]' }, { label: 'Tailwind', color: 'bg-[var(--blue)]' }, ], bgClass: 'bg-[var(--green)]', thumbLabel: 'LAND' },
+  { num: '01', category: 'Full Stack', name: 'HostImgAjaa', link: 'https://hostimgajaa.razan.web.id', image: 'https://hostimgajaa.razan.web.id/api/i/8389bb21-e1f2-432f-9310-fe23f51dc481.png', desc: 'Platform image hosting gratis dengan upload Cloudinary, autentikasi NextAuth, dan animasi WebGL.', tags: [{ label: 'Next.js', color: 'bg-[var(--blue)]' }, { label: 'MongoDB', color: 'bg-[var(--green)]' }, { label: 'Cloudinary', color: 'bg-[var(--red)]' }], bgClass: 'bg-[var(--blue)]', thumbLabel: 'IMG' },
+  { num: '02', category: 'Full Stack', name: 'PromptBetter', link: 'https://promptbetter-nine.vercel.app', image: 'https://hostimgajaa.razan.web.id/api/i/e4a22f08-b56e-4a5c-a2a0-563014ab66b9.png', desc: 'Website untuk mengubah prompt biasa menjadi luar biasa', tags: [{ label: 'Next.js', color: 'bg-[var(--blue)]' }, { label: 'MongoDB', color: 'bg-[var(--green)]' }, { label: 'GROQ AI', color: 'bg-[var(--red)]' }, { label: 'Tailwind', color: 'bg-[var(--blue)]' }], bgClass: 'bg-[var(--red)]', thumbLabel: 'QUIZ' },
+  { num: '03', category: 'Frontend', name: 'NgopiDiBlitar', link: 'https://ngopidiblitar.my.id', image: 'https://hostimgajaa.razan.web.id/api/i/ae762bbc-0f75-4143-8bb0-d714ea765b08.png', desc: 'Halaman rekomendasi dan list cafe-cafe di Kota Blitar', tags: [{ label: 'Next.js', color: 'bg-[var(--green)]' }, { label: 'Tailwind', color: 'bg-[var(--blue)]' }, { label: 'Google Sheets API', color: 'bg-[var(--green)]' }], bgClass: 'bg-[var(--green)]', thumbLabel: 'LAND' },
+  { num: '04', category: 'Full Stack', name: 'RumahFilm', link: 'https://rumahfilm.razan.web.id', image: 'https://hostimgajaa.razan.web.id/api/i/5e05508d-0031-4574-8701-e46269e9e976.png', desc: 'Platform streaming film online bersih, nyaman, gratis', tags: [{ label: 'Next.js', color: 'bg-[var(--green)]' }, { label: 'Tailwind', color: 'bg-[var(--blue)]' }], bgClass: 'bg-[var(--green)]', thumbLabel: 'LAND' },
 ]
 
 const filtersList = [
@@ -22,10 +22,10 @@ const filtersList = [
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('Semua');
 
-  const filteredProjects = activeFilter === 'Semua' 
-    ? allProjectsData 
-    : allProjectsData.filter(p => 
-        p.category === activeFilter || 
+  const filteredProjects = activeFilter === 'Semua'
+    ? allProjectsData
+    : allProjectsData.filter(p =>
+        p.category === activeFilter ||
         p.tags.some(t => t.label.toLowerCase() === activeFilter.toLowerCase())
       );
 
@@ -39,7 +39,10 @@ export default function Projects() {
             onClick={() => setActiveFilter(filter.id)}
             className={`p-[14px_22px] text-[0.64rem] tracking-[0.1em] uppercase font-[family-name:var(--font-dm-mono)] bg-transparent border-none border-r-[1.5px] border-[var(--ink)] cursor-pointer whitespace-nowrap transition-colors duration-200 flex items-center gap-[7px] first:border-l-[1.5px] first:ml-auto last:mr-auto hover:bg-[var(--ink)] hover:text-white group ${activeFilter === filter.id ? 'bg-[var(--ink)] text-white relative after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[var(--blue)]' : ''}`}
           >
-            <span className={`w-[7px] h-[7px] rounded-full border-[1px] border-[var(--ink)] transition-colors duration-200 group-hover:bg-white group-hover:border-white ${activeFilter === filter.id ? 'bg-white border-white' : ''}`} style={{ background: filter.id === 'Semua' ? (activeFilter === 'Semua' ? '#fff' : 'transparent') : filter.color }}></span>
+            <span
+              className={`w-[7px] h-[7px] rounded-full border-[1px] border-[var(--ink)] transition-colors duration-200 group-hover:bg-white group-hover:border-white ${activeFilter === filter.id ? 'bg-white border-white' : ''}`}
+              style={{ background: filter.id === 'Semua' ? (activeFilter === 'Semua' ? '#fff' : 'transparent') : filter.color }}
+            ></span>
             {filter.label}
           </button>
         ))}
@@ -57,8 +60,11 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 min-[601px]:grid-cols-2 min-[901px]:grid-cols-3 gap-0 border-[1.5px] border-[var(--ink)]">
           {filteredProjects.length > 0 ? filteredProjects.map((p, i) => (
-            <div key={i} className="border-[var(--ink)] border-b-[1.5px] border-r-[1.5px] cursor-pointer relative overflow-hidden bg-[var(--white)] transition-colors duration-[250ms] hover:bg-[#fcfcfc] flex-col group max-[600px]:!border-r-0 max-[600px]:last:!border-b-0 min-[601px]:max-[900px]:[&:nth-child(2n)]:border-r-0 min-[601px]:max-[900px]:[&:nth-last-child(-n+2):nth-child(2n+1)]:border-b-0 min-[601px]:max-[900px]:[&:nth-last-child(-n+2):nth-child(2n+1)_~_&]:border-b-0 min-[901px]:[&:nth-child(3n)]:border-r-0 min-[901px]:[&:nth-last-child(-n+3):nth-child(3n+1)]:border-b-0 min-[901px]:[&:nth-last-child(-n+3):nth-child(3n+1)_~_&]:border-b-0">
-              
+            <div
+              key={i}
+              onClick={() => p.link && window.open(p.link, '_blank')}
+              className="border-[var(--ink)] border-b-[1.5px] border-r-[1.5px] cursor-pointer relative overflow-hidden bg-[var(--white)] transition-colors duration-[250ms] hover:bg-[#fcfcfc] flex-col group max-[600px]:!border-r-0 max-[600px]:last:!border-b-0 min-[601px]:max-[900px]:[&:nth-child(2n)]:border-r-0 min-[601px]:max-[900px]:[&:nth-last-child(-n+2):nth-child(2n+1)]:border-b-0 min-[601px]:max-[900px]:[&:nth-last-child(-n+2):nth-child(2n+1)_~_&]:border-b-0 min-[901px]:[&:nth-child(3n)]:border-r-0 min-[901px]:[&:nth-last-child(-n+3):nth-child(3n+1)]:border-b-0 min-[901px]:[&:nth-last-child(-n+3):nth-child(3n+1)_~_&]:border-b-0"
+            >
               <div className={`w-full aspect-[16/9] flex items-center justify-center border-b-[1.5px] border-[var(--ink)] relative overflow-hidden transition-all duration-300 group-hover:brightness-95 ${p.bgClass}`}>
                 {p.image ? (
                   <Image src={p.image} alt={p.name} fill className="object-cover z-[1]" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" />
@@ -73,7 +79,7 @@ export default function Projects() {
                   <span className="text-[#FFFFFF] text-[0.68rem] tracking-[0.12em] uppercase border-[1.5px] border-white/60 p-[8px_18px] font-[family-name:var(--font-dm-mono)]">Buka Detail →</span>
                 </div>
               </div>
-              
+
               <div className="p-[16px_18px_20px]">
                 <div className="font-[family-name:var(--font-syne)] font-extrabold text-[0.88rem] tracking-[-0.2px] mb-[5px]">{p.name}</div>
                 <div className="text-[0.67rem] text-[#777] leading-[1.65] mb-[12px] font-[family-name:var(--font-dm-mono)]">{p.desc}</div>
